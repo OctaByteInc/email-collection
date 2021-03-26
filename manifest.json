@@ -1,0 +1,25 @@
+{
+    "name": "Email Collection",
+    "description": "Collection emails from First Nation website",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+      },
+      "permissions": ["storage", "activeTab", "scripting"],
+      "action": {
+        "default_popup": "popup.html"
+      },
+      "options_page": "options.html",
+      "content_scripts": [
+        {
+          "matches": ["https://*.firstnational.com.au/*"],
+          "js": [
+            "jquery.min.js",
+            "links.js",
+            "download-json-data.js",
+            "contentScript.js"
+          ]
+        }
+      ]
+}
